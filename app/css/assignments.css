@@ -1,0 +1,28 @@
+#border_bottom {
+    border-bottom: 1px solid black;
+}
+
+#toimeksianto_border {
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    margin-bottom: 15px;
+}
+
+.panel-heading {
+    font-weight: bold;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.gi-2x{font-size: 20px;}
+.gi-3x{font-size: 30px;}
+.gi-4x{font-size: 40px;}
+.gi-5x{font-size: 50px;}
+
+.progress {
+    margin-top: 30px;
+}

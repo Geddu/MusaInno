@@ -1,0 +1,56 @@
+<head>
+    <link rel="stylesheet" href="/app/css/assignments.css">
+</head>
+
+<div class="col-sm-12" id="toimeksianto_border">
+   
+    <form class="form-horizontal">
+
+        <div class="form-group">
+            
+            <label class="control-label col-sm-4 col-sm-offset-1"> {{$parent.artisti}} </label>
+            <!-- Osuus boxi-->
+            <div class="col-xs-3">
+
+                <!-- /input-summa -->
+                <div class="input-group">
+                    <input id="summa" type="text" class="form-control" name="summa" placeholder="Summa">
+                    <span class="input-group-addon">&euro;</span>
+                </div>
+
+            </div>
+
+            <div class="col-xs-2">
+                <!-- /input-% -->
+                <div class="input-group">
+                    <input id="prosentti" type="text" class="form-control" name="prosentti" placeholder="%">
+                    <span class="input-group-addon">%</span>
+                </div>
+            </div>
+
+            <div class="col-sm-1 col-sm-offset-1 col-xs-1 ">
+                <a href="">
+                    <div ng-click="$parent.poistaArtisti($index)" href="" class="label label-danger">
+                        &times;
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Kilometrikorvaukset-->
+
+       
+
+        <div class="form-group">
+            <div class=" col-sm-8 col-sm-offset-4" ng-repeat="file in $parent.tiedosto track by $index">
+                {{file.name}}
+                {{$parent.$index}}
+
+            </div>
+        </div>
+        <!--  {{myFile.name}}-->
+        <!-- -->
+
+    </form>
+</div>

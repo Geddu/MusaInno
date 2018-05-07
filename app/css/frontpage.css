@@ -1,0 +1,92 @@
+#ul_laskelma {
+    list-style-type: none;
+    border-bottom: 1px solid black;
+}
+
+.invert {
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.venytys {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+
+#line {
+    border: 1px solid black;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+#historia_koko {
+    max-height: 57px;
+    max-width: 57px;
+}
+
+#elements_blines {
+    border-bottom: 1px solid black;
+}
+
+.lisaa_toimanto_nappi {
+    background-color: rgb(0, 226, 70);
+    align-items: stretch;
+}
+
+.katso_historia_nappi {
+    background-color: rgb(255, 0, 0);
+    align-items: stretch;
+
+}
+
+.plus {
+    font-size: 40px;
+}
+
+/*responsiiviset tekstit Otsikoille*/
+
+/* responsive text queries */
+@media screen and (max-width: 992px) {
+    /*p,.btn,input,div,span,h4 {
+      font-size: 95%;
+    }*/
+    plus {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    plus {
+        font-size: 20px;
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+}
+
+table {
+    margin: 10px 12px;
+}
+
+.venue {
+    width: 50%;
+}
+
+.date {
+    width: 30%;
+}
+
+.sum {
+    width: 20%;
+}

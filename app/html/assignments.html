@@ -1,0 +1,42 @@
+<div ui-view name="menu"></div>
+
+<div class="container background" ng-controller="assignmentsCtrl">
+    <div class="row">
+        <center>
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-6">
+                <h2>Omat toimeksiannot</h2>
+                <h4>Toimeksiantoja yhteensä {{count}} kappaletta</h4>
+            </div>
+            <div class="col-md-3">
+                <button ui-sref="add_assignment({id:'1'})" class="btn btn-success tmargin">Luo toimeksianto</button>
+            </div>
+        </center>
+    </div>
+
+    <!-- Toimeksianto-->
+    <table frame="box" class="table table-responsive table-hover">
+        <thead>
+        <tr class="active">
+            <th>Paikka</th>
+            <th>Kuvaus</th>
+            <th>Ajankohta</th>
+            <th>Laskutussumma</th>
+            <th>Tila</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="assignment in assignments">
+            <td><a>{{assignment.venue}}</a></td> <!--TODO: lisää linkki toimeksiannon lisätietosivulle-->
+            <td>{{assignment.description}}</td>
+            <td>{{assignment.event_date}}</td>
+            <td>{{assignment.sum}}€</td>
+            <td>{{assignment.ready_state}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="row bpadding">
+    </div>
+</div>

@@ -1,0 +1,95 @@
+body {
+    
+}
+
+body::before {
+    content: ' ';
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: url('/app/images/umw_background.jpg') no-repeat;
+    background-size: cover;
+    background-position: 0% 0%;
+    will-change: transform;
+    z-index: -1;
+}
+
+.otsikko{
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.input_field{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.center{
+    text-align: center;
+}
+
+.background{
+    background-color: #f8f8f8;
+    border-radius: 5px;
+}
+
+.left{
+    text-align: left;
+}
+
+.bpadding{
+    padding-bottom: 10px;
+}
+.tpadding{
+    padding-top: 10px;
+}
+.white{
+    color:white;
+}
+.d_flex{
+    display: flex;
+}
+.p_size{
+    min-height: 142px;
+}
+.bmargin{
+    margin-bottom: 20px;
+}
+.tmargin{
+    margin-top: 20px;
+}
+.w66{
+    width:66%;
+}
+.w33{
+    width:33%;
+}
+label.not-bold{
+    font-weight: normal;
+}
+div.centered{
+    float: none;
+    margin: 0 auto;
+}
+.dropdown-menu {
+  left: 50%;
+  right: auto;
+  text-align: center;
+  transform: translate(-50%, 0);
+}
+.title_box { 
+    border: #3c5a86 1px dotted; 
+}
+
+.title_box #title { 
+    position: relative; 
+    top : -0.7em;
+    padding: 5px;
+    margin-left: 1em;
+    display: inline; 
+    background-color: white; 
+}
+
+.title_box #content {
+}

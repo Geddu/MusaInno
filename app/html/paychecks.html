@@ -1,0 +1,37 @@
+<div ui-view name="menu"></div>
+
+<div class="container background" ng-controller="paychecksCtrl">
+    <div class="row">
+        <center>
+            <h2>Omat palkkasuoritukset</h2>
+            <h4>Palkkakortteja yhteensä {{count}} kappaletta</h4>
+        </center>
+    </div>
+    <!-- Toimeksianto-->
+
+    <table frame="box" class="table table-responsive table-hover">
+        <thead>
+        <tr class="active">
+            <th>Maksupäivä</th>
+            <th>Toimeksianto</th>
+            <th>Kuukausinetto</th>
+            <th>Lataa PDF</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="paycheck in paychecks">
+            <td>{{paycheck.assignment.ready_date}}</td>
+            <td>{{paycheck.assignment.venue}}</td>
+            <td>{{paycheck.share}}</td>
+            <td class="left"><button type="button" class="btn btn-default" aria-label="left">
+                <span class="glyphicon glyphicon-file" aria-hidden="true"></span></button>
+        </tr>
+        </tbody>
+    </table>
+    <div class="row">
+        <div ng-include="'/app/html/downloadable_reports.html'"></div>
+    </div>
+
+    <div class="row bpadding">
+    </div>
+</div>

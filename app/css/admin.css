@@ -1,0 +1,32 @@
+.pointerCursor {
+	cursor: pointer;
+}
+
+.st-sort-ascent:before{
+    content: '\25B2';
+}
+
+.st-sort-descent:before{
+    content: '\25BC';
+}
+
+.modal-dialog {
+  width: 100%;
+  padding: 24px;
+  background: #fff;
+  margin: 24px 0;
+  border-radius: 6px;
+}
+
+.pagination {
+	margin-top: 12px;
+	margin-bottom: 0;
+}
+
+.table tbody tr:hover {
+	background: rgba(0,0,0,.1);
+}
+
+.table {
+	margin-bottom: 0;
+}

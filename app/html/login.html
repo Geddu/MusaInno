@@ -1,0 +1,74 @@
+<head>
+    <link rel="stylesheet" href="/app/css/login.css">
+</head>
+
+<div class="container background" ng-controller="loginCtrl">
+    <div id="form_login" class="box-shadow col-md-4  col-sm-10 col-xs-10">
+        <form>
+            <div class="form-group" ng-submit="login()">
+                <center>
+                    <img src="/app/images/login_logo.png"
+                         width="250"
+                         height="250" class="img-responsive" alt="kirjatumiskuva">
+                </center>
+            </div>
+            <div class="otsikko">
+                <h1>Kirjaudu sisään</h1>
+            </div>
+
+            <div class="form-group input_field">
+                <input ng-model="credentials.email" type="email" class="form-control" id="email" placeholder="Syötä sähköpostiosoite" autofocus required />
+            </div>
+            <div class="form-group input_field">
+                <input ng-model="credentials.password" my-enter="login()" type="password" class="form-control" id="pwd" placeholder="Syötä salasana" required />
+            </div>
+            <div class="form-group">
+
+                <button ng-click="login()" id="form_button" type="submit"
+                        class="btn btn-primary col-md-5 col-xs-5">Kirjaudu
+                </button>
+                <button id="form_button" class="btn btn-success col-md-5 col-sm-5 col-xs-5" data-toggle="modal"
+                        data-target="#Register">Rekisteröidy
+                </button>
+            </div>
+            <div class="form-group">
+                <center>
+                    <a href="#" data-toggle="modal" data-target="#myModal">
+                        <h4 id="s_teksti">Unohtuiko salasanasi?</h4>
+                    </a>
+                </center>
+            </div>
+        </form>
+    </div>
+
+    <!-- Modal unohtui salasana -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Unohtuiko salasana?</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Syötä sähköpostiosoite, jotta voimme resetoida salasanasi</label>
+                        <input type="email" class="form-control" id="email" placeholder="Sähköposti">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Sulje</button>
+                    <button type="button" class="btn btn-success">Lähetä</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal register -->
+    <div class="modal fade" id="Register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div ng-include="'/app/html/modal_register.html'"></div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "first_name": "Tiina",
+    "last_name": "Testi",
+    "social_security_number": "221189-ABC1",
+    "email": "testi@testaaja.fi",
+    "address": "testikuja",
+    "zip_code": "00100",
+    "city": "Helsinki",
+    "tax_percentage": "11,0",
+    "bank_account_nbr": "FI219304901943",
+    "bic": 940394322,
+    "tax_card": "http://placehold.it/32x32",
+    "comission": "7,5",
+    "income_limit": 23000
+  }
+]

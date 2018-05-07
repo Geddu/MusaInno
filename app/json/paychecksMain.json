@@ -1,0 +1,24 @@
+[
+  {
+    "user_id": 1,
+    "tax_percentage": 10,
+    "pension_rate": 5.7,
+    "unemployment_insurance_rate": 1.15,
+    "paychecks": [
+      {
+        "paycheck_id": 47,
+        "assignment_id": 7,
+        "gross_payment": 300,
+        "TYOKORVAUS": 50,
+        "compensation": 100
+      },
+      {
+        "paycheck_id": 48,
+        "assignment_id": 8,
+        "gross_payment": 400,
+        "TYOKORVAUS": 50,
+        "compensation": 150
+      }
+    ]
+  }
+]

@@ -1,0 +1,135 @@
+
+    <div class="modal-content" ng-if="!showBanks">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <h3 class="modal-title" id="myModalLabel">Rekisteröinti</h3>
+        </div>
+        <div class="modal-body">
+            <form class="form" name="registerForm" novalidate>
+
+                <div class="form-group">
+                    <label>Etunimet</label>
+                    <input type="text" placeholder="Etunimet Esim. Matti Mikko" class="form-control" name="userFirstName" ng-model="form.firstName" required />
+                    <div ng-if="registerForm.userFirstName.$dirty" ng-messages="registerForm.userFirstName.$error">
+                        <div class="alert alert-danger" ng-message="required">Täytä myös tämä kenttä!</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Sukunimi</label>
+                    <input type="text" placeholder="Sukunimi Esim. Meikäläinen" class="form-control" name="userLastName" ng-model="form.lastName" required />
+                    <div ng-if="registerForm.userLastName.$dirty" ng-messages="registerForm.userLastName.$error">
+                        <div class="alert alert-danger" ng-message="required">Täytä myös tämä kenttä!</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Sotu</label>
+                    <input type="text" placeholder="Sosiaaliturvatunnus Esim. 010288-123A" class="form-control" name="userSotu" ng-model="form.sotu" maxlength="11" minlength="11" required/>
+                    <div ng-if="registerForm.userSotu.$dirty" ng-messages="registerForm.userSotu.$error">
+                        <div class="alert alert-danger" ng-message="required">Täytä myös tämä kenttä!</div>
+                        <div class="alert alert-danger" ng-message="minlength">Kentän pitäisi sisältää 11 merkkiä</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Sähköposti</label>
+                    <input type="email" placeholder="Sähköpostiosoite Esim. Sähköposti@osoite.fi" class="form-control" name="userEmail" ng-model="form.email" required />
+                    <div ng-if="registerForm.userEmail.$dirty" ng-messages="registerForm.userEmail.$error">
+                        <div class="alert alert-danger" ng-message="required">Täytä myös tämä kenttä!</div>
+                        <div class="alert alert-danger" ng-message="email">Sähköpostiosoite väärässä muodossa!</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Osoite</label>
+                    <input type="text" placeholder="Katuosoite Esim. Arinatie 15" class="form-control" name="userAddress" ng-model="form.address" required />
+                    <div ng-if="registerForm.userAddress.$dirty" ng-messages="registerForm.userAddress.$error">
+                        <div class="alert alert-danger" ng-message="required">Täytä myös tämä kenttä!</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Postinumero</label>
+                    <input type="text" placeholder="Postinumero Esim. 00370" class="form-control" name="userPostNumber" ng-model="form.postNumber" required minlength="5" maxlength="5"/>
+                    <div ng-if="registerForm.userAddress.$dirty" ng-messages="registerForm.userPostNumber.$error">
+                        <div class="alert alert-danger" ng-message="required">Täytä myös tämä kenttä!</div>
+                        <div class="alert alert-danger" ng-message="minlength">Kentän pitäisi sisältää 5 numeroa!</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Kaupunki</label>
+                    <input type="text" placeholder="Postitoimipaikka Esim. Helsinki" class="form-control" name="userCity" ng-model="form.city" required />
+                    <div ng-if="registerForm.userCity.$dirty" ng-messages="registerForm.userCity.$error">
+                        <div class="alert alert-danger" ng-message="required">Täytä myös tämä kenttä!</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Puhelinnumero</label>
+                    <input type="text" placeholder="Puhelinnumero Esim. +358505762758" class="form-control" name="userPhoneNumber" ng-model="form.phoneNumber" maxlength="16"
+                           ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/"
+                           required/>
+                    <div ng-if="registerForm.userPhoneNumber.$dirty" ng-messages="registerForm.userPhoneNumber.$error">
+                        <div class="alert alert-danger" ng-message="required">Täytä myös tämä kenttä!</div>
+                        <div class="alert alert-danger" ng-message="pattern">Kentän pitäisi sisältää oikea puhelinnumero!</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Salasana</label>
+                    <input type="password" placeholder="**********" class="form-control" name="userPassword" ng-model="form.password" required maxlength="30" minlength="6" />
+                    <div ng-if="registerForm.userPassword.$dirty" ng-messages="registerForm.userPassword.$error">
+                        <div class="alert alert-danger" ng-message="required">Täytä myös tämä kenttä!</div>
+                        <div class="alert alert-danger" ng-message="minlength">Kentän pitäisi sisältää vähintään 6 merkkiä!</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Salasana uudelleen</label>
+                    <input type="password" placeholder="**********" class="form-control" match-password="userPassword" name="confirmPassword" ng-model="form.confirmPassword" required maxlength="30" minlength="6" />
+                    <div ng-if="registerForm.confirmPassword.$dirty" ng-messages="registerForm.confirmPassword.$error">
+                        <div class="alert alert-danger" ng-message="required">Täytä myös tämä kenttä!</div>
+                        <div class="alert alert-danger" ng-message="passwordMatch">Salasanat eivät täsmää!</div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-success" ng-click="registerForm.$valid && changeView()">Jatka varmennukseen</button>
+        </div>
+    </div>
+
+    <div class="modal-content" ng-if="showBanks">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">SUOMI.FI-tunnistautuminen</h4>
+        </div>
+        <div class="modal-body">
+            <div><p>Olet tunnistautumassa palveluun</p></div>
+            <div><h2>UMW Productions, Tunnistautuminen</h2></div>
+            <label>Valitse tunnistustapa</label>
+            <div class="row">
+
+                <div class="col-md-4 center tpadding" ng-repeat="bank in banks">
+                    <a href="">
+                    <div ng-click="serviceRedirect(bank.value)">
+                        <img src="https://onnistuu.fi{{bank.img}}" class="img-responsive size_settings center-block">
+                        <h3>
+                            {{bank.name}}
+                        </h3>
+                    </div>
+                    </a>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button col-sm-6" class="btn btn-success pull-left" ng-click="changeView()">Palaa takaisin</button>
+            </div>
+        </div>
+    </div>
+
+

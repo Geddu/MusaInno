@@ -1,0 +1,96 @@
+[
+  {
+    "id": 11,
+    "user_id": 1,
+    "sum": 2000,
+    "statutory_payment": 250,
+    "creator_ready": 0,
+    "compensation_ready": 0,
+    "contact": "Liisa Lii",
+    "contact_email": "maili@email.com",
+    "reference": "Viitaten kesäjuhliin",
+    "event_date": "2016-09-23T12:22:43 -03:00",
+    "description": "Rehtorin läksiäiset",
+    "additional_info": "Laskutettavaan voi olla suoraan yhteydessä p.0203039399",
+    "including_alv": 0,
+    "invoice_types": [
+      {
+        "id": 1,
+        "name": "Verkkolasku"
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "name": "Esiintyminen"
+      }
+    ],
+    "billable_infos": [
+      {
+        "id": 5,
+        "billable": "Metropolia AMK",
+        "address": "bulevardi 31",
+        "zip_code": 11100,
+        "city": "Helsinki",
+        "email": "metka@metropolia.fi",
+        "ovt_label": 3719675438,
+        "broker_label": 758329
+      }
+    ],
+    "paychecks": [
+      {
+        "id": 37,
+        "user_id": 7,
+        "share": 376.76,
+        "is_percentage": 0,
+        "compensation_ready": 0,
+        "users": [
+          {
+            "first_name": "Waters",
+            "last_name": "Velasquez"
+          }
+        ]
+      },
+      {
+        "id": 28,
+        "user_id": 19,
+        "share": 354.14,
+        "is_percentage": 0,
+        "compensation_ready": 0,
+        "users": [
+          {
+            "first_name": "Whitney",
+            "last_name": "Joyce"
+          }
+        ]
+      },
+      {
+        "id": 24,
+        "user_id": 23,
+        "share": 168.56,
+        "is_percentage": 0,
+        "compensation_ready": 0,
+        "users": [
+          {
+            "first_name": "Sandy",
+            "last_name": "Briggs"
+          }
+        ]
+      }
+    ],
+    "compensations": [
+      {
+        "id": 35,
+        "compensation_type_id": 1,
+        "name": "Päiväraha",
+        "user_id": 36
+      },
+      {
+        "id": 23,
+        "compensation_type_id": 1,
+        "name": "Päiväraha",
+        "user_id": 16
+      }
+    ]
+  }
+]

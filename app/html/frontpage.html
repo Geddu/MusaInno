@@ -1,0 +1,204 @@
+<head>
+    <link rel="stylesheet" href="/app/css/frontpage.css">
+</head>
+
+<div ui-view name="menu"></div>
+
+<div class="container">
+    <!--Mockup huomiopalkille-->
+    <!--<div class="alert alert-info">-->
+    <!--<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>-->
+    <!--<strong>Huomio! Huomio!</strong>-->
+    <!--</div>-->
+    <div class="row">
+
+        <div class="col-md-6">
+            <div id="line" class="col-md-12 background">
+
+                <div class="row d_flex" id="elements_blines">
+                    <div class="col-md-10 col-sm-9 col-xs-9">
+                        <h2>Toimeksiannot</h2>
+                    </div>
+                    <a ui-sref="add_assignment({id:'1'})"
+                       class="col-md-2 col-sm-3 col-xs-3 form-horizontal lisaa_toimanto_nappi">
+                        <center>
+                            <div class="plus white">+</div>
+                        </center>
+                    </a>
+                </div>
+
+                <div class="row" id="elements_blines">
+                    <div class="col-md-12">
+                        <strong>Keskeneräiset</strong>
+                    </div>
+                </div>
+
+                <div class="row" id="elements_blines">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="venue">Paikka</th>
+                                <th class="date">Päivämäärä</th>
+                                <th class="sum">Palkkasumma</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="assignment in incomplete_assignments">
+                                <td class="venue">
+                                    <button class="btn btn-link"
+                                            data-toggle="modal"
+                                            data-target="#assignment-info"
+                                            ng-click="changeActiveAssignment(assignment)">{{assignment.venue}}
+                                    </button>
+                                </td>
+                                <td class="date">{{assignment.event_date}}</td>
+                                <td class="sum">{{assignment.sum}}€</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="row" id="elements_blines">
+                    <div class="col-md-12">
+                        <strong>Lähetetyt</strong>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="venue">Paikka</th>
+                                <th class="date">Päivämäärä</th>
+                                <th class="sum">Palkkasumma</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="assignment in completed_assignments">
+                                <td class="venue">
+                                    <button class="btn btn-link"
+                                            data-toggle="modal"
+                                            data-target="#assignment-info"
+                                            ng-click="changeActiveAssignment(assignment)">{{assignment.venue}}
+                                    </button>
+                                </td>
+                                <td class="date">{{assignment.event_date}}</td>
+                                <td class="sum">{{assignment.sum}}€</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--- Modal Assignment Info --->
+        <div class="modal" id="assignment-info">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <!-- more usage of angular data binding -->
+                        <h2>{{activeAssignment.venue}}</h2>
+
+                    </div>
+                    <div class="modal-body">
+                        <div class="row top-buffer">
+                            <div class="col-md-6">
+                                <!-- angular data binding -->
+                                <p><strong>Päivämäärä: </strong>{{activeAssignment.event_date}}</p>
+                                <p><strong>Kuvaus: </strong>{{activeAssignment.description}}</p>
+                                <p><strong>Summa: </strong>{{activeAssignment.sum}} €</p>
+                                <p><strong>Kontakti: </strong>{{activeAssignment.contact}}</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col-xs-12 top-buffer">
+                            <!-- angular data binding and data-dismiss for bootstrap -->
+                            <button class="btn btn-primary pull-right" 
+                                    data-dismiss="modal">Sulje</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Palkkasuoritusten listaukset -->
+        <div class="col-md-6 ">
+            <div id="line" class="col-md-12 background">
+                <div class="row d_flex" id="elements_blines">
+                    <div class="col-md-10 col-sm-9 col-xs-9">
+                        <h2>Palkkasuoritukset</h2>
+                    </div>
+                    <a ui-sref="paychecks" class="col-md-2 col-sm-3 col-xs-3 form-horizontal katso_historia_nappi">
+                        <center>
+                            <img class="img-responsive invert white" id="historia_koko"
+                                 src="/app/images/history_logo.png"/>
+                        </center>
+                    </a>
+                </div>
+
+                <div class="row" id="elements_blines">
+
+                    <div class="row">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="venue">Paikka</th>
+                                    <th class="date">Päivämäärä</th>
+                                    <th class="sum">Palkkasumma</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="assignment in completed_assignments">
+                                    <td class="venue">
+                                        <button class="btn btn-link"
+                                                data-toggle="modal"
+                                                data-target="#assignment-info"
+                                                ng-click="changeActiveAssignment(assignment)">{{assignment.venue}}
+                                        </button>
+                                    </td>
+                                    <td class="date">{{assignment.event_date}}</td>
+                                    <td class="sum">{{assignment.sum}}€</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="col-md-3 col-xs-3 col-sm-3">
+                        <!--<strong>Kpl</strong> -->
+                    </div>
+                    <div class="col-md-3 col-xs-3 col-sm-3">
+                        <strong>Summa</strong>
+                    </div>
+                </div>
+                <div class="row p_size" id="elements_blines">
+                    <div class="row" ng-repeat="laskelma in palkka_lask">
+                        <div class="col-md-12 col-xs-12 col-sm-12">
+                            <div class="col-md-6 col-xs-6 col-sm-6">
+                                {{laskelma[0]}}
+                            </div>
+                            <div class="col-md-3 col-xs-3 col-sm-3">
+                                <!--{{laskelma[1]}} -->
+                            </div>
+                            <div class="col-md-3 col-xs-3 col-sm-3">
+                                {{laskelma[1]}} €
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <strong>
+                            Maksetaan:
+                        </strong>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

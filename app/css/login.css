@@ -1,0 +1,83 @@
+#s_teksti {
+    padding-top: 40px;
+    text-decoration: underline;
+}
+
+#parent {
+    display: table;
+    width: 100%;
+}
+
+#middle {
+    margin: auto;
+}
+
+.login_center {
+    position: relative;
+    transform: translateY(50%);
+}
+
+.container {
+
+}
+
+#form_login {
+    background-color: rgb(153,153,153);
+    padding: 10px;
+
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    -webkit-transform: translate3d(-50%, -50%, 0);
+    -moz-transform: translate3d(-50%, -50%, 0);
+    -ms-transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, -50%, 0);
+
+}
+
+#form_button {
+    left: 7%;
+
+}
+
+/* Modaalin keskitys*/
+
+.modal {
+    text-align: center;
+    padding: 0 !important;
+}
+
+.modal:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px; /* Adjusts for spacing */
+}
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+.size_settings{
+    height: 50px;
+}
+.ng-invalid {
+    border-color: red;
+    outline-color: red;
+}
+
+.ng-valid {
+    border-color: green;
+    outline-color: green;
+}
+
+.messages {
+    font-size: smaller;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    color: red;
+}

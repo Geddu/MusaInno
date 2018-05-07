@@ -1,0 +1,235 @@
+<head>
+    <link rel="stylesheet" href="/app/css/assignments.css">
+</head>
+
+<div ui-view name="menu"></div>
+<div class="container background tpadding bpadding" ng-controller="addAssignmentCtrl">
+    <div class="row bmargin">
+        <center>
+            <h1>Toimeksiannon luonti</h1>
+        </center>
+    </div>
+    <div class="row">
+        <!-- Vasemman puolen lomake-->
+        <div class="col-md-6 ">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-md-2">Laskutettava*</label>
+                    <div class="col-md-7 col-md-offset-1">
+                        <input ng-model="billable_info.billable" type="text" class="form-control"
+                               placeholder="Esim. yrityksen nimi">
+                    </div>
+
+                    <div class="col-md1">
+                        <span popover-placement="bottom" uib-popover="{{tips.billable_tip}}" type="button"
+                              class="glyphicon glyphicon-question-sign gi-3x"></span>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">Yhteyshenkilö</label>
+                    <div class="col-md-7 col-md-offset-1">
+                        <input ng-model="assignment.contact" type="text" class="form-control"
+                               placeholder="Etunimi Sukunimi">
+                    </div>
+                    <div class="col-md-1">
+                        <span popover-placement="bottom" uib-popover="{{tips.contact_tip}}" type="button"
+                              class="glyphicon glyphicon-question-sign gi-3x"></span>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">Laskutustapa*</label>
+                    <div class="col-md-7 col-md-offset-1">
+                        <select ng-model="lasktapa" ng-change="piilota()" class="form-control">
+                            <option disabled value="">Valitse</option>
+                            <option value=1>Verkkolasku</option>
+                            <option value=2>Sähköpostilasku</option>
+                            <option value=3>Paperilasku</option>
+                        </select>
+                    </div>
+                    <div class="col-md1">
+                        <span popover-placement="bottom" uib-popover="{{tips.invoice_tip}}" type="button"
+                              class="glyphicon glyphicon-question-sign gi-3x"></span>
+                    </div>
+                </div>
+
+                <div class="form-group" ng-hide="laskutustapa.sposti">
+                    <label class="control-label col-md-2">Sähköposti*</label>
+                    <div class="col-md-7 col-md-offset-1">
+                        <input ng-model="assignment.contact_email" type="text" class="form-control"
+                               placeholder="Esim Matti@Meikäläinen.com">
+                    </div>
+
+                    <div class="col-md1">
+                        <span popover-placement="bottom" uib-popover="{{tips.email_tip}}" type="button"
+                              class="glyphicon glyphicon-question-sign gi-3x"></span>
+                    </div>
+                </div>
+
+                <div class="form-group" ng-hide="laskutustapa.osoite">
+                    <label class="control-label col-md-2">Osoite*</label>
+                    <div class="col-md-7 col-md-offset-1">
+                        <input ng-model="billable_info.address" type="text" class="form-control" placeholder="">
+                    </div>
+
+                </div>
+
+                <div class="form-group" ng-hide="laskutustapa.postinro">
+                    <label class="control-label col-md-2">Postinumero*</label>
+                    <div class="col-md-7 col-md-offset-1">
+                        <input ng-model="billable_info.zip_code" type="text" class="form-control" placeholder="">
+                    </div>
+                </div>
+
+                <div class="form-group" ng-hide="laskutustapa.kaupunki">
+                    <label class="control-label col-md-2">Kaupunki*</label>
+                    <div class="col-md-7 col-md-offset-1">
+                        <input ng-model="billable_info.city" type="text" class="form-control" placeholder="">
+                    </div>
+                </div>
+
+                <div class="form-group" ng-hide="laskutustapa.ovt">
+                    <label class="control-label col-md-2">OVT-tunnus*</label>
+                    <div class="col-md-7 col-md-offset-1">
+                        <input ng-model="billable_info.ovt_label" type="text" class="form-control" placeholder="">
+                    </div>
+
+                    <div class="col-md1">
+                        <span popover-placement="bottom" uib-popover="{{tips.ovt_tip}}" type="button"
+                              class="glyphicon glyphicon-question-sign gi-3x"></span>
+                    </div>
+                </div>
+
+                <div class="form-group" ng-hide="laskutustapa.vtunnus">
+                    <label class="control-label col-md-2">Välittäjätunnus</label>
+                    <div class="col-md-7 col-md-offset-1">
+                        <input ng-model="billable_info.broker_label" type="text" class="form-control" placeholder="">
+                    </div>
+                    <div class="col-md1">
+                        <span popover-placement="bottom" uib-popover="{{tips.broker_tip}}" type="button"
+                              class="glyphicon glyphicon-question-sign gi-3x"></span>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">Viite</label>
+                    <div class="col-md-7 col-md-offset-1">
+                        <input ng-model="assignment.reference" type="text" class="form-control" placeholder="Viite">
+                    </div>
+                    <div class="col-md1">
+                        <span popover-placement="bottom" uib-popover="{{tips.reference_tip}}" type="button"
+                              class="glyphicon glyphicon-question-sign gi-3x"></span>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">Muut tiedot</label>
+                    <div class="col-md-7 col-md-offset-1">
+                        <textarea ng-model="assignment.additional_info" class="form-control"
+                                  placeholder="lisätietoa"></textarea>
+                    </div>
+                    <div class="col-md1">
+                        <span popover-placement="bottom" uib-popover="{{tips.info_tip}}" type="button"
+                              class="glyphicon glyphicon-question-sign gi-3x"></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- Oikea puolen lomake-->
+        <div class="col-md-6 form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-md-2">Työnkuva*</label>
+                <div class="col-md-7 col-md-offset-1">
+                    <select ng-options="topic as topic.name for topic in topics track by topic.id"
+                            ng-model="assignment.topic_id" class="form-control">
+                    </select>
+                </div>
+                <div class="col-md1">
+                        <span popover-placement="bottom" uib-popover="{{tips.topic_tip}}" type="button"
+                              class="glyphicon glyphicon-question-sign gi-3x"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Summa*</label>
+                <div class="col-md-5 col-md-offset-1">
+                    <input ng-model="assignment.sum" type="number" class="form-control" placeholder="Esim 100€">
+                </div>
+                <div class="checkbox col-md-2">
+                    <label><input ng-model="assignment.including_alv" type="checkbox" value="">Sis Alv</label>
+                </div>
+                <div class="col-md1">
+                        <span popover-placement="bottom" uib-popover="{{tips.sum_tip}}" type="button"
+                              class="glyphicon glyphicon-question-sign gi-3x"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Päivämäärä*</label>
+                <div class="col-md-7 col-md-offset-1">
+                    <p class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt"
+                               is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true"
+                               close-text="Close"/>
+                        <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open2()"><i
+                            class="glyphicon glyphicon-calendar"></i></button>
+                      </span>
+                    </p>
+                </div>
+                <div class="col-md1">
+                        <span popover-placement="bottom" uib-popover="{{tips.date_tip}}" type="button"
+                              class="glyphicon glyphicon-question-sign gi-3x"></span>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Paikka</label>
+                <div class="col-md-7 col-md-offset-1">
+                    <input ng-model="assignment.venue" type="text" class="form-control"
+                           placeholder="Esiintymispaikka">
+                </div>
+                <div class="col-md1">
+                        <span popover-placement="bottom" uib-popover="{{tips.venue_tip}}" type="button"
+                              class="glyphicon glyphicon-question-sign gi-3x"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Tapahtumakuvaus*</label>
+                <div class="col-md-7 col-md-offset-1">
+                    <textarea ng-model="assignment.description" class="form-control"
+                              placeholder="Lyhyt kuvaus tapahtumasta"></textarea>
+                </div>
+                <div class="col-md1">
+                        <span popover-placement="bottom" uib-popover="{{tips.description_tip}}" type="button"
+                              class="glyphicon glyphicon-question-sign gi-3x"></span>
+                </div>
+            </div>
+        </div>
+        <!-- Progress bar-->
+        <div class="container">
+            <div class="col-sm-12 col-xs-12 col-md-12">
+                <div class="progress">
+                    <div class="progress-bar w33" role="progressbar" aria-valuenow="70"
+                         aria-valuemin="0" aria-valuemax="100">
+                        <span class="sr-only">33% Complete</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ############# -->
+        <div class="row">
+            <div class="col-sm-2 col-xs-2 col-md-2 col-md-offset-10">
+                <button ng-click="addAssignment()" class="btn btn-primary">Seuraava</button>
+            </div>
+        </div>
+    </div>
+</div>

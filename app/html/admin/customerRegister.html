@@ -1,0 +1,353 @@
+<head>
+	<link rel="stylesheet" href="/app/css/admin.css">
+</head>
+
+<div ui-view name="menu"></div>
+
+<div class="container background" style="padding-bottom:20px;" ng-controller="adminCustomerRegisterCtrl">
+
+	<div ng-if="userReg.length>0">
+
+		<h1>Asiakasrekisteri</h1>
+
+		<p>Yhteensä {{userReg.length}} asiakasta.</p>
+
+		<div class="table-responsive">
+			<table st-table="userRegDisplayed" st-safe-src="userReg" class="table table-condensed table-hover">
+				<thead>
+					<tr>
+						<th st-sort="id" st-sort-default="true" class="pointerCursor">ID</th>
+						<th st-sort="first_name" class="pointerCursor">Nimi</th>
+						<th st-sort="email" class="pointerCursor">Sähköposti</th>
+						<th st-sort="bank_account_nbr" class="pointerCursor">Tilinumero</th>
+						<th st-sort="phone_number" class="pointerCursor">Puhelin</th>
+						<th st-sort="address" class="pointerCursor">Osoite</th>
+					</tr>
+					<tr>
+						<th colspan="6"><input st-search="" class="form-control" placeholder="Etsi taulukosta..." type="text"/></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="user in userRegDisplayed" ng-click="getUserInfo(user.id)" data-toggle="modal" data-target="#userInfoModal" class="pointerCursor">
+						<td>{{user.id}}</td>
+						<td>{{user.first_name}} {{user.last_name}}</td>
+						<td>{{user.email}}</td>
+						<td>{{user.bank_account_nbr}}</td>
+						<td>{{user.phone_number}}</td>
+						<td>{{user.address}}, {{user.zip_code}} {{user.city}}</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="6" class="text-center">
+							<div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+						</td>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+
+
+		<button ng-json-export-excel data="userReg" report-fields="reportFields" filename="'umw_asiakasrekisteri'" class="btn btn-primary">
+			Lataa Excel-muodossa
+		</button>
+
+
+
+		<!-- User Info -->
+		<div id="userInfoModal" class="modal fade" role="dialog">
+			<div class="container">
+				<div class="modal-dialog">
+
+					<h2>Käyttäjän "{{adminUser.first_name}} {{adminUser.last_name}}" tiedot</h2>
+
+					<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+						<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="headingOne">
+								<h4 class="panel-title">
+									<a role="button" data-toggle="collapse" data-parent="#accordion" href="#info" aria-expanded="true" aria-controls="info">
+										Käyttäjän yleistiedot
+									</a>
+								</h4>
+							</div>
+							<div id="info" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+								<div class="panel-body">
+									<div class="row">
+										<form class="form-horizontal">
+											<div class="col-md-6">
+												<h3>Yleistiedot</h3>
+												<div class="form-group">
+													<label class="control-label col-sm-4">Etunimet</label>
+													<div class="col-sm-8">
+														<input type="text" ng-model="adminUser.first_name" class="form-control">
+													</div>
+												</div>
+
+												<div class="form-group">
+													<label class="control-label col-sm-4">Sukunimi</label>
+													<div class="col-sm-8">
+														<input type="text" ng-model="adminUser.last_name" class="form-control">
+													</div>
+												</div>
+
+												<div class="form-group">
+													<label class="control-label col-sm-4">Osoite</label>
+													<div class="col-sm-8">
+														<input type="text" ng-model="adminUser.address" class="form-control">
+													</div>
+												</div>
+
+												<div class="form-group">
+													<label class="control-label col-sm-4">Postinumero</label>
+													<div class="col-sm-8">
+														<input type="text" ng-model="adminUser.zip_code" class="form-control">
+													</div>
+												</div>
+
+												<div class="form-group">
+													<label class="control-label col-sm-4">Kaupunki</label>
+													<div class="col-sm-8">
+														<input type="text" ng-model="adminUser.city" class="form-control">
+													</div>
+												</div>
+
+												<div class="form-group">
+													<label class="control-label col-sm-4">Sähköpostiosoite</label>
+													<div class="col-sm-8">
+														<input type="text" ng-model="adminUser.email" class="form-control">
+													</div>
+												</div>
+
+												<div class="form-group">
+													<label class="control-label  col-sm-4">Puhelin</label>
+													<div class="col-sm-8">
+														<input type="text" ng-model="adminUser.phone_number" class="form-control">
+													</div>
+												</div>
+
+												<h3>Muut tiedot</h3>
+												<div class="form-group">
+													<label class="control-label col-sm-4">Provisio %</label>
+													<div class="col-sm-8">
+														<input type="text" ng-model="adminUser.comission" class="form-control">
+													</div>
+												</div>
+											</div>
+
+											<div class="col-md-6">
+												<h3>Verotiedot</h3>
+												<div class="form-group">
+													<label class="control-label col-sm-4">Veroprosentti</label>
+													<div class="col-sm-8">
+														<input type="number" ng-model="adminUser.tax_percentage" class="form-control">
+													</div>
+												</div>
+
+												<div class="form-group">
+													<label class="control-label col-sm-4">Lisäveroprosentti</label>
+													<div class="col-sm-8">
+														<input type="number" step=any ng-model="adminUser.comission" class="form-control">
+													</div>
+												</div>
+
+												<div class="form-group">
+													<label class="control-label col-sm-4">Vuosituloraja</label>
+													<div class="col-sm-8">
+														<input type="number" ng-model="adminUser.income_limit" class="form-control">
+													</div>
+												</div>
+
+												<div class="form-group">
+													<label class="control-label col-sm-4">Verokortti</label>
+													<div class="col-sm-8">
+														<p style="margin-top:10px;">
+															<a href="data:application/pdf;base64,{{adminUser.tax_card}}" download="{{adminUser.first_name}}{{adminUser.last_name}}_Verokortti.pdf" target="_blank">Lataa verokortti</a>
+														</p>
+													</div>
+												</div>
+
+												<h3>Pankkitiedot</h3>
+												<div class="form-group">
+													<label class="control-label col-sm-4">Tilinumero IBAN-muotoisena</label>
+													<div class="col-sm-8">
+														<input type="text" ng-model="adminUser.bank_account_nbr" class="form-control">
+													</div>
+												</div>
+
+												<div class="form-group">
+													<label class="control-label col-sm-4">Palkkojen maksuviite</label>
+													<div class="col-sm-8">
+														<input type="text" ng-model="adminUser.pay_reference" class="form-control">
+													</div>
+												</div>
+											</div>
+
+											<div class="row">
+												<div class="col-xs-12">
+													<button type="submit" class="btn btn-primary" id="edit-btn" ng-click="editUser(adminUser)" style="margin-left:12px;">Päivitä tiedot</button>
+												</div>
+											</div>
+
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="headingTwo">
+								<h4 class="panel-title">
+									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#assignments" aria-expanded="false" aria-controls="assignments">
+										Käyttäjän toimeksiannot
+									</a>
+								</h4>
+							</div>
+							<div id="assignments" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+								<div class="panel-body">
+									<div class="alert alert-danger" ng-if="adminUser.assignments.length==0">
+										Toimeksiantoja henkilölle "{{adminUser.first_name}} {{adminUser.last_name}}" ei löytynyt.
+									</div>
+									<p ng-if="adminUser.assignments.length>0">Yhteensä {{adminUser.assignments.length}} toimeksiantoa.</p>
+									<div class="table-responsive">
+										<table st-table="adminUserAssignmentsDisplayed" st-safe-src="adminUser.assignments" class="table table-condensed table-hover" ng-if="adminUser.assignments.length>0">
+											<thead>
+												<tr>
+													<th st-sort="id" class="pointerCursor">ID</th>
+													<th st-sort="venue" class="pointerCursor">Paikka</th>
+													<th st-sort="description" class="pointerCursor">Kuvaus</th>
+													<th st-sort-default="reverse" st-sort="getters.event_date" class="pointerCursor">Ajankohta</th>
+													<th st-sort="sum" class="pointerCursor">Laskutussumma</th>
+													<th st-sort="state" class="pointerCursor">Tila</th>
+												</tr>
+												<tr>
+													<th colspan="6"><input st-search="" class="form-control" placeholder="Etsi taulukosta..." type="text"/></th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr ng-repeat="assignment in adminUserAssignmentsDisplayed">
+													<td>{{assignment.id}}</td>
+													<td>{{assignment.venue}}</td>
+													<td>{{assignment.description}}</td>
+													<td>{{assignment.event_date_format}}</td>
+													<td>{{assignment.sum}}€</td>
+													<td>{{assignment.state}}</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="6" class="text-center">
+														<div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+													</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="headingThree">
+								<h4 class="panel-title">
+									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#paychecks" aria-expanded="false" aria-controls="paychecks">
+										Käyttäjän palkkatiedot
+									</a>
+								</h4>
+							</div>
+							<div id="paychecks" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+								<div class="panel-body">
+									<h3>Maksetut palkat</h3>
+									<div class="alert alert-danger" ng-if="paychecks_paid.length==0">
+										Maksettuja palkkatietoja käyttäjälle "{{adminUser.first_name}} {{adminUser.last_name}}" ei löytynyt.
+									</div>
+									<div class="table-responsive">
+										<table st-table="adminUserPaychecksDisplayed" st-safe-src="paychecks_paid" class="table table-condensed table-hover" ng-if="paychecks_paid.length>0">
+											<thead>
+												<tr>
+													<th st-sort="id" class="pointerCursor">ID</th>
+													<th st-sort="assignment.id" class="pointerCursor">Toimeksiannon ID</th>
+													<th st-sort="assignment.venue" class="pointerCursor">Toimeksiannon paikka</th>
+													<th st-sort="assignment.description" class="pointerCursor">Toimeksiannon kuvaus</th>
+													<th st-sort="share" class="pointerCursor">Palkka</th>
+													<th st-sort-default="reverse" st-sort="getters.paid_date" class="pointerCursor">Maksupäivämäärä</th>
+												</tr>
+												<tr>
+													<th colspan="6"><input st-search="" class="form-control" placeholder="Etsi taulukosta..." type="text"/></th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr ng-repeat="paycheck in adminUserPaychecksDisplayed">
+													<td>{{paycheck.id}}</td>
+													<td>{{paycheck.assignment.id}}</td>
+													<td>{{paycheck.assignment.venue}}</td>
+													<td>{{paycheck.assignment.description}}</td>
+													<td>{{paycheck.share}}€</td>
+													<td>{{paycheck.paid_date_format}}</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="6" class="text-center">
+														<div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+													</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+
+									<h3>Ei maksetut palkat</h3>
+									<div class="alert alert-danger" ng-if="paychecks_not_paid.length==0">
+										Ei maksettuja palkkatietoja käyttäjälle "{{adminUser.first_name}} {{adminUser.last_name}}" ei löytynyt.
+									</div>
+									<div class="table-responsive">
+										<table st-table="adminUserPaychecksDisplayed" st-safe-src="paychecks_not_paid" class="table table-condensed table-hover" ng-if="paychecks_not_paid.length>0">
+											<thead>
+												<tr>
+													<th st-sort="id" class="pointerCursor">ID</th>
+													<th st-sort="assignment.id" class="pointerCursor">Toimeksiannon ID</th>
+													<th st-sort="assignment.venue" class="pointerCursor">Toimeksiannon paikka</th>
+													<th st-sort="assignment.description" class="pointerCursor">Toimeksiannon kuvaus</th>
+													<th st-sort-default="reverse" st-sort="getters.assignment_event_date" class="pointerCursor">Toimeksiannon päivämäärä</th>
+													<th st-sort="share" class="pointerCursor">Palkka</th>
+												</tr>
+												<tr>
+													<th colspan="6"><input st-search="" class="form-control" placeholder="Etsi taulukosta..." type="text"/></th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr ng-repeat="paycheck in adminUserPaychecksDisplayed">
+													<td>{{paycheck.id}}</td>
+													<td>{{paycheck.assignment.id}}</td>
+													<td>{{paycheck.assignment.venue}}</td>
+													<td>{{paycheck.assignment.description}}</td>
+													<td>{{paycheck.assignment.event_date_format}}</td>
+													<td>{{paycheck.share}}€</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="6" class="text-center">
+														<div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+													</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+
+					<div class="modal-footer" style="text-align: left;">
+				        <button type="button" class="btn btn-danger" data-dismiss="modal">Sulje</button>
+				    </div>
+
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+</div>

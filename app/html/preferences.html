@@ -1,0 +1,31 @@
+<div ui-view name="menu"></div>
+<div class="container background">
+
+    <div class="modal fade" id="userInfoModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="alert alert-success" style="margin-bottom:0;">
+                    <a href="#" class="close" data-dismiss="modal" aria-label="close">&times;</a>
+                    Tietosi päivitettiin onnistuneesti!
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form class="form-horizontal" id="userInfoForm">
+        <div class="row">
+            <!-- Yleistiedot -->
+            <div class="col-sm-6">
+                <div ng-include="'/app/html/general_info.html'"></div>
+
+            </div>
+            <!-- Verotiedot -->
+            <div class="col-sm-6">
+                <div ng-include="'/app/html/tax_info.html'"></div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" ng-click="editUser()" style="margin-top:10px;">Päivitä tiedot</button>
+    </form>
+    <div class="row bpadding"></div>
+
+</div>

@@ -1,0 +1,75 @@
+<head>
+    <link rel="stylesheet" href="/app/css/assignments.css">
+</head>
+
+<!-- Kokonaissumma -->
+<div class="row">
+    <div class="col-sm-8">
+        <h3>
+            Laskutettava summa
+        </h3>
+    </div>
+
+    <div class="col-sm-4">
+        <h3>
+            {{laskutettavaSumma}} €
+        </h3>
+    </div>
+</div>
+
+<!-- Palkkatiedot-->
+<div class="row" id="border_bottom">
+    <div class="col-sm-8 col-md-8 ">
+        <h4>
+            Välittäjän provisio
+        </h4>
+    </div>
+    <div class="col-sm-4 col-md-4">
+        <h4>
+            {{laskutettavaSumma*(provisio())}} € ({{provisio()*100}} %)
+        </h4>
+    </div>
+</div>
+
+<!-- Jaettava bruttopalkkasumma -->
+<div class="row">
+    <div class="col-sm-8">
+        <h3>
+            Jaettava bruttopalkkasumma
+        </h3>
+    </div>
+
+    <div class="col-sm-4">
+        <h3>
+            {{laskutettavaSumma*(1-provisio())}} €
+        </h3>
+    </div>
+</div>
+
+<!-- Henkilöiden palkkatiedot-->
+<div class="row">
+    <div class="col-sm-8 col-md-8 ">
+        <h4>
+            Essi esimerkki
+        </h4>
+    </div>
+
+    <div class="col-sm-4 col-md-4">
+        <h4>
+            {{brutto1(0.5)}} €
+        </h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-8 col-md-8 ">
+        <h4>
+            Essi esimerkki2
+        </h4>
+    </div>
+
+    <div class="col-sm-4 col-md-4">
+        <h4>
+            {{brutto1(0.5)}} €
+        </h4>
+    </div>
+</div>

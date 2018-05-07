@@ -1,0 +1,57 @@
+[
+  {
+    "id": 19,
+    "user_id": 1,
+    "billable": "Metropolia AMK",
+    "event_date": "2016-01-17T11:57:33 -02:00",
+    "sum": 3262.95,
+    "creator_ready": 0,
+    "compensation_ready": 1,
+    "description": "Sint exercitation mollit eiusmod ullamco ut irure nulla in est occaecat aute incididunt. Occaecat voluptate ullamco officia consequat eu aute. Reprehenderit ex Lorem sunt minim labore proident mollit. Aute duis nostrud anim anim dolor ad nisi minim. Eiusmod labore veniam amet mollit tempor proident pariatur. Voluptate exercitation consectetur voluptate velit est commodo tempor et. Reprehenderit veniam cillum consequat pariatur.\r\n",
+    "topic": "Esiintyminen"
+  },
+  {
+    "id": 33,
+    "user_id": 1,
+    "billable": "Metropolia AMK",
+    "event_date": "2016-10-22T02:10:34 -03:00",
+    "sum": 3447.82,
+    "creator_ready": 0,
+    "compensation_ready": 0,
+    "description": "Nisi est amet exercitation mollit quis voluptate. Amet fugiat elit in pariatur eu duis nulla proident. Exercitation labore veniam reprehenderit irure dolor pariatur cillum anim deserunt duis. Aliquip anim non sit dolor cillum ipsum. Consectetur ad quis enim sunt amet aliquip. Deserunt tempor duis nulla eu elit exercitation cupidatat in ex nulla laborum. Mollit ea velit irure cillum eiusmod labore in quis amet ea veniam commodo nulla eiusmod.\r\n",
+    "topic": "Esiintyminen"
+  },
+  {
+    "id": 36,
+    "user_id": 1,
+    "billable": "Metropolia AMK",
+    "event_date": "2014-08-29T11:39:22 -03:00",
+    "sum": 1716.36,
+    "creator_ready": 1,
+    "compensation_ready": 0,
+    "description": "Incididunt enim sunt dolore aliquip ut ullamco dolor laborum cillum. Officia elit occaecat velit eiusmod qui ipsum nulla reprehenderit mollit est. Sint deserunt adipisicing et anim culpa eiusmod exercitation anim et ullamco pariatur laborum consectetur duis.\r\n",
+    "topic": "Esiintyminen"
+  },
+  {
+    "id": 15,
+    "user_id": 1,
+    "billable": "Metropolia AMK",
+    "event_date": "2016-06-11T04:31:46 -03:00",
+    "sum": 3179.83,
+    "creator_ready": 1,
+    "compensation_ready": 0,
+    "description": "Ea incididunt ad aliqua mollit velit anim excepteur aliquip nisi consectetur cillum adipisicing tempor. Magna pariatur pariatur amet nulla tempor quis fugiat ea cupidatat. In esse qui velit ex labore cillum elit mollit. Magna dolor Lorem eiusmod pariatur id reprehenderit consequat reprehenderit culpa aliquip tempor et irure qui.\r\n",
+    "topic": "Esiintyminen"
+  },
+  {
+    "id": 40,
+    "user_id": 1,
+    "billable": "Metropolia AMK",
+    "event_date": "2016-08-30T02:16:03 -03:00",
+    "sum": 1828.5,
+    "creator_ready": 0,
+    "compensation_ready": 0,
+    "description": "Eu cillum pariatur velit do exercitation ipsum do ex ea elit. Reprehenderit veniam ullamco dolore quis esse. Minim magna laborum dolor eu proident laborum dolore incididunt et. Voluptate esse ea culpa enim adipisicing non est dolore ea tempor.\r\n",
+    "topic": "Esiintyminen"
+  }
+]

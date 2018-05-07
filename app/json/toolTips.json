@@ -1,0 +1,18 @@
+[
+  {
+    "billable_tip": "Huomioi, että laskutettavan yrityksen nimi voi olla eri kuin esim. keikkapaikkana toimivan ravintolan nimi. Tarkasta tarkka laskutusosoite aina tilaajalta.",
+    "contact_tip": "Yritykset haluavat usein viitteen lisäksi myös tilaajan nimen, jotta lasku osataan hyväksyttää oikealla henkilöllä. Tilaajan tiedot auttavat myös mahdollisten laskua koskevien epäselvyyksien selvittämisessä.",
+    "invoice_tip": "Valitse miten yritys haluaa tulla laskutetuksi.",
+    "reference_tip": "Yritysasiakkaat haluavat usein laskuilleen jonkun viitteen, jonka avulla he kohdistavat laskunsa yrityksen sisällä. Tämä kannattaa aina erikseen kysyä tilaajalta.",
+    "info_tip": "Muut tarvittavat laskutusta koskevat tiedot.",
+    "topic_tip": "Valitse luettelosta, mikä kuvaa tehtyä työtä parhaiten. Osa laskutettavista töistä on arvonlisäveron alaisia, jolloin laskutussummaan lisätään tai sisällytetään alv.",
+    "sum_tip": "Tämä summa on se kokonaissumma, joka työn tilaajalta laskutetaan. Tähän tulee sisältyä kokonaispalkkio sekä kaikki muut mahdolliset korvaukset, kuten erikseen sovitut matkakorvaukset jne.",
+    "date_tip": "Merkitse tähän päivämäärä, jolloin keikka tai työsuoritus on tehty. Jos kyseessä on esim. kiertue merkitse tähän kiertueen aikaväli (esim. 3.4.-17.5.2015).",
+    "venue_tip": "Merkitse tähän kaupunki sekä sen paikan nimi, missä keikka/työsuoritus on tehty (esim. ravintolan nimi).",
+    "description_tip": "Esim. Bändi X:n esiintyminen UMW Productions Oy:n asiakastilaisuudessa.",
+    "address_tip": "Jos yrityksellä on verkkolaskutusosoite, ei postiosoitetta tarvitse täyttää.",
+    "email_tip": "Sähköpostiosoite pdf-laskujen lähettämistä varten.",
+    "ovt_tip": "Verkkolaskuosoite. OVT-tunnus koostuu maakoodista 0037 + yrityksen Y-tunnuksesta ilman väliviivaa sekä mahdollisesta tarkenteesta (enintään 5 merkkiä).",
+    "broker_tip": "Välittäjätunnus on verkkolaskun vastaanottajan laskujen välittäjänä toimivan operaattorin tai pankin tunnus. Välittäjätunnuksen perusteella verkkolaskuja välitetään operaattoreiden ja pankkien välisessä yhdysliikenteessä."
+  }
+]

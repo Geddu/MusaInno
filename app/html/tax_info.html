@@ -1,0 +1,49 @@
+<h2 style="text-align:center;">Verotiedot</h2>
+    <div class="form-group">
+        <label class="control-label col-sm-4">Veroprosentti</label>
+        <div class="col-sm-8">
+            <input type="number" ng-model="user.tax_percentage" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-4">Lisäveroprosentti</label>
+        <div class="col-sm-8">
+            <input type="number" step=any ng-model="user.comission" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-4">Vuosituloraja</label>
+        <div class="col-sm-8">
+            <input type="number" ng-model="user.income_limit" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-4">Verokortti</label>
+        <div class="col-sm-8">
+            <button class="btn btn-primary" id="fileAddBtn" ng-click="showTaxCardInput()">Lisää uusi verokortti</button>
+            <input type="file" id="file" name="file" style="display:none;" onchange="angular.element(this).scope().newTaxCard(this)" />
+            <p style="margin-top:10px;" ng-if="user.tax_card">
+                <a href="data:application/pdf;base64,{{user.tax_card}}" download="{{user.first_name}}{{user.last_name}}_Verokortti.pdf" target="_blank">Lataa verokorttisi</a>
+            </p>
+        </div>
+    </div>
+</form>
+
+<h2 style="text-align:center;">Pankkitiedot</h2>
+<form class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label col-sm-4">Tilinumero IBAN-muotoisena</label>
+        <div class="col-sm-8">
+            <input type="text" ng-model="user.bank_account_nbr" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-4">Palkkojen maksuviite</label>
+        <div class="col-sm-8">
+        <input type="text" ng-model="user.pay_reference" class="form-control" disabled>
+        </div>
+    </div>
